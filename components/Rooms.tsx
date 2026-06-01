@@ -8,25 +8,25 @@ export default function Rooms() {
 
         <RoomCard
           title="📚 Archive"
-          description="Videos, articles and discoveries."
+          description="Maps, discoveries, ideas and notes collected over time."
           href="/archive"
         />
 
         <RoomCard
           title="⚗️ Experiments"
-          description="Games, tools and software projects."
+          description="Projects, games and software built from curiosity."
           href="/experiments"
         />
 
         <RoomCard
           title="🎨 Sketchbook"
-          description="Drawings and creative work."
+          description="Drawings, practice pieces and visual explorations."
           href="/sketchbook"
         />
 
         <RoomCard
           title="🕯 Reading Room"
-          description="Books, reviews and favourite ideas."
+          description="Books that stayed, thoughts that lingered, lessons worth revisiting."
           href="/reading-room"
         />
 
