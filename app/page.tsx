@@ -33,6 +33,7 @@ const ArchiveView = () => (
       <h2 className="font-heading text-4xl text-[#ebdcb9] tracking-wide">The Archive</h2>
       <span className="font-body italic text-[#786149] text-sm">Vol. I</span>
     </div>
+    
     <p className="font-body text-[#bfae95] text-lg italic leading-relaxed max-w-2xl">
       YouTube channel, knowledge bases and digital products.
     </p>
@@ -88,8 +89,9 @@ const ExperimentsView = () => (
       Games, VS Code extensions and other projects.
     </p>
 
-    {/* Elegant Ledger Link to Games Cabinet */}
-    <div className="pt-6 max-w-2xl">
+    {/* List Stack of Cabinet Portals */}
+    <div className="space-y-6 max-w-2xl pt-4">
+      {/* Elegant Ledger Link to Games Cabinet */}
       <a 
         href="https://studiobasicslab-oss.github.io/Games/" 
         target="_blank" 
@@ -120,6 +122,38 @@ const ExperimentsView = () => (
           <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
         </div>
       </a>
+
+      {/* Elegant Ledger Link to VS Code Publisher Page */}
+      <a 
+        href="https://marketplace.visualstudio.com/publishers/studiolabs" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group block relative p-8 border border-[#362a20] bg-[#16120f] hover:bg-[#1c1612] transition-all duration-500 hover:border-[#c5a880]/60"
+      >
+        {/* Brass corner bracket accents visible on hover */}
+        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-heading text-sm tracking-widest text-[#c5a880] uppercase">Scriptorium Tools</span>
+          <span className="font-body text-xs text-[#786149] italic">Publisher Ledger</span>
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl text-[#e8dec9] group-hover:text-[#c5a880] transition-colors duration-500 mb-3">
+          VS Code Extensions
+        </h3>
+
+        <p className="font-body text-[#a19077] text-base leading-relaxed mb-6">
+          Acquire custom developer instruments and aesthetic modifications built to optimize the focus and utility of the modern digital scribe.
+        </p>
+
+        <div className="flex items-center text-[#8e785d] group-hover:text-[#c5a880] font-body text-base italic transition-colors duration-500">
+          <span>Inspect Marketplace</span>
+          <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
+        </div>
+      </a>
     </div>
 
     <div className="pt-8 border-t border-dashed border-[#362a20]/40">
@@ -137,6 +171,42 @@ const CuriositiesView = () => (
     <p className="font-body text-[#bfae95] text-lg italic leading-relaxed max-w-2xl">
       Books, drawings, piano and other hobbies.
     </p>
+
+    {/* Goodreads Registry Portfolio Card */}
+    <div className="pt-6 max-w-2xl">
+      <a 
+        href="https://www.goodreads.com/user/show/158121238-hari" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group block relative p-8 border border-[#362a20] bg-[#16120f] hover:bg-[#1c1612] transition-all duration-500 hover:border-[#c5a880]/60"
+      >
+        {/* Brass corner bracket accents visible on hover */}
+        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#c5a880] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-heading text-sm tracking-widest text-[#c5a880] uppercase">Reading Registry</span>
+          <span className="font-body text-xs text-[#786149] italic">Goodreads Folio</span>
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl text-[#e8dec9] group-hover:text-[#c5a880] transition-colors duration-500 mb-3">
+          The Curator's Bookshelf
+        </h3>
+
+        {/* Updated Description block to be more welcoming */}
+        <p className="font-body text-[#a19077] text-base leading-relaxed mb-6">
+          A shared shelf for curious minds. Let's read together, trade notes, and discover stories that stay with us.
+        </p>
+
+        <div className="flex items-center text-[#8e785d] group-hover:text-[#c5a880] font-body text-base italic transition-colors duration-500">
+          <span>Inspect Goodreads Profile</span>
+          <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
+        </div>
+      </a>
+    </div>
+
     <div className="pt-8 border-t border-dashed border-[#362a20]/40">
       <p className="font-body text-[#786149] text-sm tracking-wider uppercase italic">Specimens being collected</p>
     </div>
@@ -244,10 +314,23 @@ export default function Home() {
           {activeTab === 'observatory' && <ObservatoryView />}
         </main>
 
-        {/* FOOTER */}
-        <footer className="mt-28 pt-8 border-t border-[#362a20] flex justify-between items-center text-[#786149] font-body text-sm">
-          <p>© {new Date().getFullYear()} Hari's Lab</p>
-          <p className="italic">Preserved diligently.</p>
+        {/* FOOTER WITH CORRESPONDENCE DIRECTORY */}
+        <footer className="mt-28 pt-8 border-t border-[#362a20] flex flex-col sm:flex-row justify-between items-center text-[#786149] font-body text-sm gap-4 text-center sm:text-left">
+          <div>
+            <p>© {new Date().getFullYear()} Hari's Lab</p>
+          </div>
+          
+          {/* Updated Correspondence Block with your new email */}
+          <div className="hover:text-[#c5a880] transition-colors duration-300">
+            <a href="mailto:studiobasics.lab@gmail.com" className="flex items-center gap-2 group italic">
+              <span className="text-[#564637] group-hover:text-[#8e785d] transition-colors">Letters:</span>
+              <span className="underline decoration-[#4a3a2c] group-hover:decoration-[#c5a880]">studiobasics.lab@gmail.com</span>
+            </a>
+          </div>
+
+          <div>
+            <p className="italic">Preserved diligently.</p>
+          </div>
         </footer>
 
       </div>
