@@ -1,6 +1,5 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Rooms from "@/components/Rooms";
+import Tabs from "@/components/Tabs";
 // import LibrariansDesk from "@/components/LibrariansDesk";
 
 export default function Home() {
@@ -22,10 +21,9 @@ export default function Home() {
       />
     </div>
 
-      <Navbar />
       <Hero />
+      <Tabs />
       {/* <LibrariansDesk /> */}
-      <Rooms />
 
       <footer className="text-center py-20 text-[var(--muted)] text-sm">
         <p>Hari's Lab</p>
