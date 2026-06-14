@@ -29,9 +29,10 @@ const globalStyles = `
 
 const ArchiveView = () => (
   <div className="space-y-8 animate-in fade-in duration-1000">
+    {/* Removed redundant duplicate title, replaced with a scholarly editorial header */}
     <div className="border-b border-[#362a20]/60 pb-4 flex items-baseline justify-between">
-      <h2 className="font-heading text-4xl text-[#ebdcb9] tracking-wide">The Archive</h2>
-      <span className="font-body italic text-[#786149] text-sm">Vol. I</span>
+      <span className="font-heading text-lg md:text-xl text-[#c5a880] tracking-widest uppercase font-medium">Volume I</span>
+      <span className="font-body italic text-[#786149] text-sm">Established 2026</span>
     </div>
     
     <p className="font-body text-[#bfae95] text-lg italic leading-relaxed max-w-2xl">
@@ -80,9 +81,10 @@ const ArchiveView = () => (
 
 const ExperimentsView = () => (
   <div className="space-y-8 animate-in fade-in duration-1000">
+    {/* Removed redundant duplicate title, replaced with a scholarly editorial header */}
     <div className="border-b border-[#362a20]/60 pb-4 flex items-baseline justify-between">
-      <h2 className="font-heading text-4xl text-[#ebdcb9] tracking-wide">Experiments</h2>
-      <span className="font-body italic text-[#786149] text-sm">Vol. II</span>
+      <span className="font-heading text-lg md:text-xl text-[#c5a880] tracking-widest uppercase font-medium">Volume II</span>
+      <span className="font-body italic text-[#786149] text-sm">Active Apparatus</span>
     </div>
     
     <p className="font-body text-[#bfae95] text-lg italic leading-relaxed max-w-2xl">
@@ -164,9 +166,10 @@ const ExperimentsView = () => (
 
 const CuriositiesView = () => (
   <div className="space-y-8 animate-in fade-in duration-1000">
+    {/* Removed redundant duplicate title, replaced with a scholarly editorial header */}
     <div className="border-b border-[#362a20]/60 pb-4 flex items-baseline justify-between">
-      <h2 className="font-heading text-4xl text-[#ebdcb9] tracking-wide">Curiosities</h2>
-      <span className="font-body italic text-[#786149] text-sm">Vol. III</span>
+      <span className="font-heading text-lg md:text-xl text-[#c5a880] tracking-widest uppercase font-medium">Volume III</span>
+      <span className="font-body italic text-[#786149] text-sm">Cabinet of Specimens</span>
     </div>
     <p className="font-body text-[#bfae95] text-lg italic leading-relaxed max-w-2xl">
       Books, drawings, piano and other hobbies.
@@ -195,7 +198,6 @@ const CuriositiesView = () => (
           The Curator's Bookshelf
         </h3>
 
-        {/* Updated Description block to be more welcoming */}
         <p className="font-body text-[#a19077] text-base leading-relaxed mb-6">
           A shared shelf for curious minds. Let's read together, trade notes, and discover stories that stay with us.
         </p>
@@ -215,9 +217,10 @@ const CuriositiesView = () => (
 
 const ObservatoryView = () => (
   <div className="space-y-8 animate-in fade-in duration-1000">
+    {/* Removed redundant duplicate title, replaced with a scholarly editorial header */}
     <div className="border-b border-[#362a20]/60 pb-4 flex items-baseline justify-between">
-      <h2 className="font-heading text-4xl text-[#ebdcb9] tracking-wide">Observatory</h2>
-      <span className="font-body italic text-[#786149] text-sm">Vol. IV</span>
+      <span className="font-heading text-lg md:text-xl text-[#c5a880] tracking-widest uppercase font-medium">Volume IV</span>
+      <span className="font-body italic text-[#786149] text-sm">Celestial Musings</span>
     </div>
     <p className="font-body text-[#bfae95] text-lg italic leading-relaxed max-w-2xl">
       Questions, paradoxes and ideas that linger.
@@ -320,7 +323,7 @@ export default function Home() {
             <p>© {new Date().getFullYear()} Hari's Lab</p>
           </div>
           
-          {/* Updated Correspondence Block with your new email */}
+          {/* Correspondence Block */}
           <div className="hover:text-[#c5a880] transition-colors duration-300">
             <a href="mailto:studiobasics.lab@gmail.com" className="flex items-center gap-2 group italic">
               <span className="text-[#564637] group-hover:text-[#8e785d] transition-colors">Letters:</span>
