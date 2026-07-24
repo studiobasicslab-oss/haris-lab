@@ -7,7 +7,7 @@ async function generateContentWithRetryAndFallback(
   contents: string,
   responseSchema: any
 ) {
-  const modelsToTry = ["gemini-2.5-flash", "gemini-1.5-flash"];
+  const modelsToTry = ["gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash"];
   let lastError: any = null;
 
   for (const modelName of modelsToTry) {
@@ -47,12 +47,17 @@ async function generateContentWithRetryAndFallback(
                             errStr.includes("timeout") ||
                             errStr.includes("fetch failed");
 
-        if (isTransient && attempt < attempts) {
-          const delay = attempt * 1000;
-          console.log(`[Gemini Retry] Retrying in ${delay}ms...`);
-          await new Promise((resolve) => setTimeout(resolve, delay));
+        if (isTransient) {
+          if (attempt < attempts) {
+            const delay = attempt * 1000;
+            console.log(`[Gemini Retry] Retrying in ${delay}ms...`);
+            await new Promise((resolve) => setTimeout(resolve, delay));
+          } else {
+            break;
+          }
         } else {
-          break;
+          // Fail fast on authentication, permission, validation, or other non-transient errors
+          throw err;
         }
       }
     }
