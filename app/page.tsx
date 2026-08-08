@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 // Google Fonts: Cormorant Garamond for titles & Lora for body copy.
 // Hardcoded Obsidian Mint color scheme directly into CSS Custom Properties.
@@ -38,21 +39,57 @@ const globalStyles = `
   }
 `;
 
+const pageVariants = {
+  initial: { opacity: 0, y: 15 },
+  animate: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.7, 
+      ease: [0.16, 1, 0.3, 1], 
+      staggerChildren: 0.15 
+    } 
+  },
+  exit: { 
+    opacity: 0, 
+    y: -15, 
+    transition: { 
+      duration: 0.4, 
+      ease: [0.7, 0, 0.84, 0] 
+    } 
+  }
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+  }
+};
+
 // --- PAGE VIEWS ---
 
 const ArchiveView = () => (
-  <div className="space-y-8 animate-in fade-in duration-1000">
-    <div className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
+  <motion.div 
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="space-y-8"
+  >
+    <motion.div variants={itemVariants} className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
       <span className="font-heading text-lg md:text-xl text-[var(--accent)] tracking-widest uppercase font-medium">Volume I</span>
       <span className="font-body italic text-[var(--muted-accent)] text-sm">Established 2026</span>
-    </div>
+    </motion.div>
     
-    <p className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
+    <motion.p variants={itemVariants} className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
       YouTube channel, knowledge bases and digital products.
-    </p>
+    </motion.p>
 
     {/* Elegant Broadsheet Link to YouTube Channel */}
-    <div className="pt-6 max-w-2xl">
+    <motion.div variants={itemVariants} className="pt-6 max-w-2xl">
       <a 
         href="https://www.youtube.com/@AMinuteofKnowledge-c6k" 
         target="_blank" 
@@ -83,27 +120,33 @@ const ArchiveView = () => (
           <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
         </div>
       </a>
-    </div>
+    </motion.div>
 
-    <div className="pt-8 border-t border-dashed border-[var(--border)]/40">
+    <motion.div variants={itemVariants} className="pt-8 border-t border-dashed border-[var(--border)]/40">
       <p className="font-body text-[var(--muted-accent)] text-sm tracking-wider uppercase italic">Cataloguing in progress</p>
-    </div>
-  </div>
+    </motion.div>
+  </motion.div>
 );
 
 const ExperimentsView = () => (
-  <div className="space-y-8 animate-in fade-in duration-1000">
-    <div className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
+  <motion.div 
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="space-y-8"
+  >
+    <motion.div variants={itemVariants} className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
       <span className="font-heading text-lg md:text-xl text-[var(--accent)] tracking-widest uppercase font-medium">Volume II</span>
       <span className="font-body italic text-[var(--muted-accent)] text-sm">Active Apparatus</span>
-    </div>
+    </motion.div>
     
-    <p className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
+    <motion.p variants={itemVariants} className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
       Games, VS Code extensions and other projects.
-    </p>
+    </motion.p>
 
     {/* List Stack of Cabinet Portals */}
-    <div className="space-y-6 max-w-2xl pt-4">
+    <motion.div variants={itemVariants} className="space-y-6 max-w-2xl pt-4">
       {/* Elegant Ledger Link to Games Cabinet */}
       <a 
         href="https://studiobasicslab-oss.github.io/Games/" 
@@ -196,26 +239,63 @@ const ExperimentsView = () => (
           <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
         </div>
       </a>
-    </div>
+    </motion.div>
 
-    <div className="pt-8 border-t border-dashed border-[var(--border)]/40">
+    <motion.div variants={itemVariants} className="pt-8 border-t border-dashed border-[var(--border)]/40">
       <p className="font-body text-[var(--muted-accent)] text-sm tracking-wider uppercase italic">Apparatus being assembled</p>
-    </div>
-  </div>
+    </motion.div>
+  </motion.div>
 );
 
 const CuriositiesView = () => (
-  <div className="space-y-8 animate-in fade-in duration-1000">
-    <div className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
+  <motion.div 
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="space-y-8"
+  >
+    <motion.div variants={itemVariants} className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
       <span className="font-heading text-lg md:text-xl text-[var(--accent)] tracking-widest uppercase font-medium">Volume III</span>
       <span className="font-body italic text-[var(--muted-accent)] text-sm">Cabinet of Specimens</span>
-    </div>
-    <p className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
+    </motion.div>
+    <motion.p variants={itemVariants} className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
       Books, drawings, piano and other hobbies.
-    </p>
+    </motion.p>
+
+    {/* Culinary Logbook Card */}
+    <motion.div variants={itemVariants} className="pt-6 max-w-2xl">
+      <a 
+        href="/cooking" 
+        className="group block relative p-8 border border-[var(--border)] bg-[var(--card-bg)] hover:bg-[var(--card-hover-bg)] transition-all duration-500 hover:border-[var(--accent)]/60"
+      >
+        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-heading text-sm tracking-widest text-[var(--accent)] uppercase">Culinary Logbook</span>
+          <span className="font-body text-xs text-[var(--muted-accent)] italic">Internal Sub-site</span>
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors duration-500 mb-3">
+          The Kitchen Laboratory
+        </h3>
+
+        <p className="font-body text-[var(--text-sub)] opacity-85 text-base leading-relaxed mb-6">
+          A logbook of culinary experiments. Documenting materials, procedures, and yields of various recipes tested in the studio kitchen.
+        </p>
+
+        <div className="flex items-center text-[var(--muted-accent)] group-hover:text-[var(--accent)] font-body text-base italic transition-colors duration-500">
+          <span>Inspect Logbook</span>
+          <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
+        </div>
+      </a>
+    </motion.div>
 
     {/* Goodreads Registry Portfolio Card */}
-    <div className="pt-6 max-w-2xl">
+    <motion.div variants={itemVariants} className="pt-6 max-w-2xl">
       <a 
         href="https://www.goodreads.com/user/show/158121238-hari" 
         target="_blank" 
@@ -233,11 +313,11 @@ const CuriositiesView = () => (
         </div>
 
         <h3 className="font-heading text-2xl md:text-3xl text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors duration-500 mb-3">
-          The Curator's Bookshelf
+          The Curator&apos;s Bookshelf
         </h3>
 
         <p className="font-body text-[var(--text-sub)] opacity-85 text-base leading-relaxed mb-6">
-          A shared shelf for curious minds. Let's read together, trade notes, and discover stories that stay with us.
+          A shared shelf for curious minds. Let&apos;s read together, trade notes, and discover stories that stay with us.
         </p>
 
         <div className="flex items-center text-[var(--muted-accent)] group-hover:text-[var(--accent)] font-body text-base italic transition-colors duration-500">
@@ -245,27 +325,99 @@ const CuriositiesView = () => (
           <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
         </div>
       </a>
-    </div>
+    </motion.div>
 
-    <div className="pt-8 border-t border-dashed border-[var(--border)]/40">
+    {/* Pinterest Drawings Board Card */}
+    <motion.div variants={itemVariants} className="pt-6 max-w-2xl">
+      <a 
+        href="https://in.pinterest.com/studiobasicslab/hobbies/digital-drawings/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group block relative p-8 border border-[var(--border)] bg-[var(--card-bg)] hover:bg-[var(--card-hover-bg)] transition-all duration-500 hover:border-[var(--accent)]/60"
+      >
+        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-heading text-sm tracking-widest text-[var(--accent)] uppercase">Digital Drawings</span>
+          <span className="font-body text-xs text-[var(--muted-accent)] italic">Pinterest Board</span>
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors duration-500 mb-3">
+          The Drawing Board
+        </h3>
+
+        <p className="font-body text-[var(--text-sub)] opacity-85 text-base leading-relaxed mb-6">
+          A curated collection of digital illustrations and visual experiments — sketches, concepts, and finished pieces from the studio.
+        </p>
+
+        <div className="flex items-center text-[var(--muted-accent)] group-hover:text-[var(--accent)] font-body text-base italic transition-colors duration-500">
+          <span>Browse the Board</span>
+          <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
+        </div>
+      </a>
+    </motion.div>
+
+    {/* Instagram Card */}
+    <motion.div variants={itemVariants} className="pt-6 max-w-2xl">
+      <a 
+        href="https://www.instagram.com/studiobasics.lab/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group block relative p-8 border border-[var(--border)] bg-[var(--card-bg)] hover:bg-[var(--card-hover-bg)] transition-all duration-500 hover:border-[var(--accent)]/60"
+      >
+        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-heading text-sm tracking-widest text-[var(--accent)] uppercase">Visual Dispatch</span>
+          <span className="font-body text-xs text-[var(--muted-accent)] italic">Instagram</span>
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors duration-500 mb-3">
+          @studiobasics.lab
+        </h3>
+
+        <p className="font-body text-[var(--text-sub)] opacity-85 text-base leading-relaxed mb-6">
+          Dispatches from the studio — works in progress, behind-the-scenes glimpses, and the occasional curiosity worth sharing.
+        </p>
+
+        <div className="flex items-center text-[var(--muted-accent)] group-hover:text-[var(--accent)] font-body text-base italic transition-colors duration-500">
+          <span>Follow the Studio</span>
+          <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
+        </div>
+      </a>
+    </motion.div>
+
+    <motion.div variants={itemVariants} className="pt-8 border-t border-dashed border-[var(--border)]/40">
       <p className="font-body text-[var(--muted-accent)] text-sm tracking-wider uppercase italic">Specimens being collected</p>
-    </div>
-  </div>
+    </motion.div>
+  </motion.div>
 );
 
 const ObservatoryView = () => (
-  <div className="space-y-8 animate-in fade-in duration-1000">
-    <div className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
+  <motion.div 
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="space-y-8"
+  >
+    <motion.div variants={itemVariants} className="border-b border-[var(--border)] pb-4 flex items-baseline justify-between transition-colors duration-1000">
       <span className="font-heading text-lg md:text-xl text-[var(--accent)] tracking-widest uppercase font-medium">Volume IV</span>
       <span className="font-body italic text-[var(--muted-accent)] text-sm">Celestial Musings</span>
-    </div>
-    <p className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
+    </motion.div>
+    <motion.p variants={itemVariants} className="font-body text-[var(--text-sub)] text-lg italic leading-relaxed max-w-2xl">
       Questions, paradoxes and ideas that linger.
-    </p>
-    <div className="pt-8 border-t border-dashed border-[var(--border)]/40">
+    </motion.p>
+    <motion.div variants={itemVariants} className="pt-8 border-t border-dashed border-[var(--border)]/40">
       <p className="font-body text-[var(--muted-accent)] text-sm tracking-wider uppercase italic">Scanning the horizon</p>
-    </div>
-  </div>
+    </motion.div>
+  </motion.div>
 );
 
 // --- MAIN APP COMPONENT ---
@@ -293,19 +445,30 @@ export default function Home() {
         
         {/* HEADER */}
         <header className="mb-20">
-          <div className="flex flex-col items-center text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center text-center"
+          >
             
             {/* Centered Grand Title */}
             <h1 className="font-heading text-7xl md:text-8xl lg:text-[6.5rem] text-[var(--text-main)] tracking-wide font-medium leading-none select-none">
-              Hari's Lab
+              Hari&apos;s Lab
             </h1>
             
             {/* Centered Elegant Vintage Separator Line & Star */}
             <div className="flex items-center gap-4 my-10 justify-center">
               <div className="w-24 h-[1px] bg-[var(--border)]"></div>
-              <svg className="w-4 h-4 text-[var(--accent)] fill-current" viewBox="0 0 24 24">
+              <motion.svg 
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="w-4 h-4 text-[var(--accent)] fill-current" 
+                viewBox="0 0 24 24"
+              >
                 <path d="M12 0L13.5 8.5L22 10L13.5 11.5L12 20L10.5 11.5L2 10L10.5 8.5L12 0Z" />
-              </svg>
+              </motion.svg>
               <div className="w-24 h-[1px] bg-[var(--border)]"></div>
             </div>
 
@@ -313,10 +476,15 @@ export default function Home() {
             <p className="font-body text-[var(--text-sub)] text-xs md:text-sm max-w-xl leading-relaxed tracking-wider font-normal">
               A growing collection of books, experiments, sketches, observations and things worth preserving.
             </p>
-          </div>
+          </motion.div>
 
           {/* NAVIGATION */}
-          <nav className="border-t border-b border-[var(--border)] py-4 mt-16">
+          <motion.nav 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="border-t border-b border-[var(--border)] py-4 mt-16"
+          >
             <ul className="flex flex-wrap justify-center gap-x-4 md:gap-x-6 gap-y-4">
               {navItems.map((item) => (
                 <li key={item.id}>
@@ -331,13 +499,17 @@ export default function Home() {
                     {item.label}
                     {/* Active Indicator Line aligns with bottom padding cleanly */}
                     {activeTab === item.id && (
-                      <span className="absolute -bottom-[17px] left-0 w-full h-[2px] bg-[var(--accent)]"></span>
+                      <motion.span 
+                        layoutId="activeTab"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        className="absolute -bottom-[17px] left-0 w-full h-[2px] bg-[var(--accent)]"
+                      ></motion.span>
                     )}
                   </button>
                 </li>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
         </header>
 
         {/* MAIN CONTENT AREA WITH ACCENT LEFT LINE */}
@@ -349,16 +521,23 @@ export default function Home() {
             <div className="absolute bottom-0 -left-[2px] w-[5px] h-[5px] bg-[var(--accent)]/60 rotate-45"></div>
           </div>
 
-          {activeTab === 'archive' && <ArchiveView />}
-          {activeTab === 'experiments' && <ExperimentsView />}
-          {activeTab === 'curiosities' && <CuriositiesView />}
-          {activeTab === 'observatory' && <ObservatoryView />}
+          <AnimatePresence mode="wait">
+            {activeTab === 'archive' && <ArchiveView key="archive" />}
+            {activeTab === 'experiments' && <ExperimentsView key="experiments" />}
+            {activeTab === 'curiosities' && <CuriositiesView key="curiosities" />}
+            {activeTab === 'observatory' && <ObservatoryView key="observatory" />}
+          </AnimatePresence>
         </main>
 
         {/* FOOTER WITH CORRESPONDENCE DIRECTORY */}
-        <footer className="mt-28 pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row justify-between items-center text-[var(--muted-accent)] font-body text-sm gap-4 text-center sm:text-left">
+        <motion.footer 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="mt-28 pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row justify-between items-center text-[var(--muted-accent)] font-body text-sm gap-4 text-center sm:text-left"
+        >
           <div>
-            <p>© {new Date().getFullYear()} Hari's Lab</p>
+            <p>© {new Date().getFullYear()} Hari&apos;s Lab</p>
           </div>
           
           {/* Correspondence Block */}
@@ -372,7 +551,7 @@ export default function Home() {
           <div>
             <p className="italic">Preserved diligently.</p>
           </div>
-        </footer>
+        </motion.footer>
 
       </div>
     </div>
