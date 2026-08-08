@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, Variants } from 'motion/react';
 
 // Google Fonts: Cormorant Garamond for titles & Lora for body copy.
 // Hardcoded Obsidian Mint color scheme directly into CSS Custom Properties.
@@ -39,7 +39,7 @@ const globalStyles = `
   }
 `;
 
-const pageVariants = {
+const pageVariants: Variants = {
   initial: { opacity: 0, y: 15 },
   animate: { 
     opacity: 1, 
@@ -60,7 +60,7 @@ const pageVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: { 
     opacity: 1, 
