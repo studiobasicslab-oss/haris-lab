@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -123,17 +123,32 @@ const recipes = [
   }
 ];
 
-const InteractiveRating = ({ initialRating }: { initialRating: number }) => {
+const InteractiveRating = ({ recipeId, initialRating }: { recipeId: string, initialRating: number }) => {
   const [ratings, setRatings] = useState<number[]>([initialRating, initialRating, initialRating, 4]); 
   const [hovered, setHovered] = useState(0);
   const [hasRated, setHasRated] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const storedData = localStorage.getItem(`rating-${recipeId}`);
+    if (storedData) {
+      try {
+        const parsed = JSON.parse(storedData);
+        if (parsed.hasRated) setHasRated(true);
+        if (parsed.ratings && Array.isArray(parsed.ratings)) setRatings(parsed.ratings);
+      } catch (e) {}
+    }
+  }, [recipeId]);
 
   const average = ratings.reduce((a, b) => a + b, 0) / ratings.length;
   
   const handleRate = (val: number) => {
     if (hasRated) return;
-    setRatings([...ratings, val]);
+    const newRatings = [...ratings, val];
+    setRatings(newRatings);
     setHasRated(true);
+    localStorage.setItem(`rating-${recipeId}`, JSON.stringify({ hasRated: true, ratings: newRatings }));
   }
 
   return (
@@ -152,7 +167,7 @@ const InteractiveRating = ({ initialRating }: { initialRating: number }) => {
         ))}
       </div>
       <div className="font-typewriter text-xs text-[var(--ink-black)] opacity-60 mt-2 ml-1">
-        {average.toFixed(1)} / 5.0 ({ratings.length} ratings) {hasRated && "- Thanks for rating!"}
+        {average.toFixed(1)} / 5.0 ({ratings.length} ratings) {isMounted && hasRated && "- Thanks for rating!"}
       </div>
     </div>
   )
@@ -282,7 +297,7 @@ export default function CookingJournal() {
                   </div>
                 </div>
                 
-                <InteractiveRating initialRating={recipe.rating} />
+                <InteractiveRating recipeId={recipe.id} initialRating={recipe.rating} />
 
                 <p className="font-handwriting text-3xl md:text-4xl text-[var(--ink-blue)] leading-relaxed mb-8 flex-1">
                   &quot;{recipe.notes}&quot;
