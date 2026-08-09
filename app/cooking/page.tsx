@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 const globalStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Shadows+Into+Light&family=Special+Elite&display=swap');
-
   :root {
     --paper-bg: #f4ecd8;
     --ink-black: #2c2a25;
@@ -26,10 +24,6 @@ const globalStyles = `
     background-position: center;
     background-blend-mode: multiply;
   }
-
-  .font-handwriting { font-family: 'Caveat', cursive; }
-  .font-typewriter { font-family: 'Special Elite', cursive; }
-  .font-marker { font-family: 'Shadows Into Light', cursive; }
   
   ::-webkit-scrollbar { width: 0px; background: transparent; }
 `;
