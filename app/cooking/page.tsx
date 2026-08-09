@@ -60,6 +60,26 @@ const recipes = [
     stamp: '/stamp-mexico.jpg'
   },
   {
+    id: 'gongura-chicken',
+    category: 'Mains' as Category,
+    title: 'Gongura Chicken 🌶️',
+    notes: 'A spicy, tangy, and deeply flavorful Andhra classic. The sour gongura leaves give it a taste like no other!',
+    materials: ['500g Chicken, bone-in 🍗', '2 bunches Gongura (Sorrel) leaves 🌿', '2 Onions, finely chopped 🧅', '2 tbsp Ginger-Garlic paste 🧄', 'Spices (Chili powder, Turmeric, Garam Masala) 🌶️', 'Oil & Curry Leaves 🍃'],
+    procedures: [
+      'Sauté the gongura leaves in a little oil until they wilt and turn mushy. Set aside.',
+      'In a heavy-bottomed pan, fry the onions, green chilies, and ginger-garlic paste until golden.',
+      'Add the chicken pieces, spices, and salt. Cook until the chicken is browned and halfway done.',
+      'Stir in the cooked gongura paste and let it simmer until the chicken is tender and the oil separates.',
+      'Garnish with fresh coriander and serve hot with steamed rice! 🍚'
+    ],
+    sticker: '/gongura-chicken.jpg',
+    stickerRotation: 3,
+    tapeColor: 'var(--tape-pink)',
+    rating: 5,
+    country: 'India',
+    stamp: '/stamp-india.jpg'
+  },
+  {
     id: 'dragon-mocktail',
     category: 'Drinks' as Category,
     title: '🌺 Dragon Mocktail',
