@@ -139,34 +139,7 @@ const ExperimentsView = () => (
 
     {/* List Stack of Cabinet Portals */}
     <motion.div variants={itemVariants} className="space-y-6 max-w-2xl pt-4">
-      {/* Built-in Corporate Translator Card */}
-      <Link 
-        href="/tools/corporate-translator"
-        className="group block relative p-8 border border-[var(--border)] bg-[var(--card-bg)] hover:bg-[var(--card-hover-bg)] transition-all duration-500 hover:border-[var(--accent)]/60"
-      >
-        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-        <div className="flex items-center justify-between mb-3">
-          <span className="font-heading text-xs md:text-sm tracking-widest text-[var(--accent)] uppercase">AI Instrument</span>
-          <span className="font-body text-xs text-[var(--muted-accent)] italic">Internal App</span>
-        </div>
-
-        <h3 className="font-heading text-2xl md:text-3xl text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors duration-500 mb-3">
-          Corporate Translator
-        </h3>
-
-        <p className="font-body text-[var(--text-sub)] opacity-85 text-base leading-relaxed mb-6">
-          An AI-powered lexicon tool to decode corporate jargon into plain English, or obfuscate simple statements into professional synergy.
-        </p>
-
-        <div className="flex items-center text-[var(--muted-accent)] group-hover:text-[var(--accent)] font-body text-base italic transition-colors duration-500">
-          <span>Initialize Translator</span>
-          <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-500 font-sans text-lg">⟶</span>
-        </div>
-      </Link>
 
       {/* Elegant Ledger Link to Games Cabinet */}
       <a 

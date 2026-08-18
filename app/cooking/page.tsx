@@ -242,7 +242,7 @@ export default function CookingJournal() {
         </section>
 
         {/* Index Page */}
-        <section className="h-screen w-full snap-start snap-always relative flex items-center justify-center p-4 md:p-12">
+        <section id="index-page" className="h-screen w-full snap-start snap-always relative flex items-center justify-center p-4 md:p-12">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -392,7 +392,7 @@ export default function CookingJournal() {
             <p className="font-handwriting text-5xl text-[var(--ink-black)] mb-10">
               More deliciousness coming soon... 🍽️
             </p>
-            <button className="animate-bounce text-4xl text-[var(--ink-black)] cursor-pointer font-marker hover:text-[var(--ink-red)] transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <button className="animate-bounce text-4xl text-[var(--ink-black)] cursor-pointer font-marker hover:text-[var(--ink-red)] transition-colors" onClick={() => scrollToRecipe('index-page')}>
               ↑ Back to Index
             </button>
           </motion.div>
