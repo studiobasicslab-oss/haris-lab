@@ -1,0 +1,19 @@
+{
+  "name": "Gamify Your Life",
+  "short_name": "Gamify",
+  "description": "Turn your life into a game and become your best self.",
+  "start_url": "/gamify-life",
+  "display": "standalone",
+  "background_color": "#fcf6ea",
+  "theme_color": "#fcf6ea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/gamify-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

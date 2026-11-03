@@ -11,15 +11,21 @@
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.2.11",
     "@google/genai": "^2.13.0",
+    "canvas-confetti": "^1.9.4",
     "lucide-react": "^1.26.0",
     "motion": "^12.42.2",
     "next": "16.2.6",
+    "pako": "^3.0.3",
+    "qrcode": "^1.5.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
+    "@types/pako": "^2.0.4",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

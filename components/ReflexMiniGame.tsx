@@ -6,16 +6,17 @@ import { labAudio } from "./LabAudio";
 export default function ReflexMiniGame() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("hari_lab_minigame_highscore");
+      if (saved) return parseInt(saved, 10);
+    }
+    return 0;
+  });
   const [timeLeft, setTimeLeft] = useState(20);
   const [combo, setCombo] = useState(1);
   const [targets, setTargets] = useState<Array<{ id: number; x: number; y: number; size: number; color: string; created: number }>>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("hari_lab_minigame_highscore");
-    if (saved) setHighScore(parseInt(saved, 10));
-  }, []);
 
   const spawnTarget = useCallback(() => {
     if (!containerRef.current) return;

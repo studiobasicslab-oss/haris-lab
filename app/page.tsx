@@ -6,13 +6,14 @@ import {
   Sparkles,
   Search,
   Orbit,
-  Radio,
   Atom,
   Layers,
   RefreshCw,
   Video,
+  Package,
 } from "lucide-react";
 import CosmicCanvas from "../components/CosmicCanvas";
+import AtmosphericCanvas from "../components/AtmosphericCanvas";
 import TelemetryBar from "../components/TelemetryBar";
 import ProjectCard from "../components/ProjectCard";
 import CuriosityModal from "../components/CuriosityModal";
@@ -24,7 +25,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isCuriosityOpen, setIsCuriosityOpen] = useState<boolean>(false);
-  const [activeTheme, setActiveTheme] = useState<string>("obsidian-mint");
+  const [activeTheme, setActiveTheme] = useState<string>("space");
   const [thoughtIndex, setThoughtIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -38,6 +39,13 @@ export default function Home() {
       icon: Layers,
       count: LAB_PORTALS.length,
       description: "Complete studio directory of active websites, tools, and social channels",
+    },
+    {
+      id: "digital-products",
+      label: "Digital Products",
+      icon: Package,
+      count: LAB_PORTALS.filter((p) => p.category === "digital-products").length,
+      description: "Interactive applications, Gamify Your Life RPG habit system, and custom digital instruments",
     },
     {
       id: "games-tools",
@@ -97,9 +105,15 @@ export default function Home() {
   const currentTabObj = navTabs.find((t) => t.id === activeTab);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-main)] relative selection:bg-[var(--accent)] selection:text-[#090a0f]">
-      {/* Background Constellation Particle Field */}
-      <CosmicCanvas density="medium" interactive={true} />
+    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-main)] relative selection:bg-[var(--accent)] selection:text-[#090a0f] transition-colors duration-500">
+      {/* Background Particle Fields: Space Constellations vs Forest Fireflies vs Flower Petals */}
+      {activeTheme === "space" || activeTheme === "obsidian-mint" ? (
+        <CosmicCanvas density="medium" interactive={true} />
+      ) : activeTheme === "forest" ? (
+        <AtmosphericCanvas theme="dark-forest" interactive={true} />
+      ) : (
+        <AtmosphericCanvas theme="vintage-coquette" interactive={true} />
+      )}
 
       {/* Top Telemetry & Controls Bar */}
       <TelemetryBar

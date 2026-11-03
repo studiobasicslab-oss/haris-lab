@@ -1,7 +1,7 @@
 export interface LabPortal {
   id: string;
   title: string;
-  category: "games-tools" | "curiosities" | "broadcasts" | "observatory";
+  category: "digital-products" | "games-tools" | "curiosities" | "broadcasts" | "observatory";
   categoryLabel: string;
   badge: string;
   destinationType: "External Hub" | "YouTube Channel" | "Pinterest Board" | "Instagram Profile" | "Goodreads Folio" | "Internal Webapp" | "Marketplace Publisher";
@@ -15,6 +15,23 @@ export interface LabPortal {
 }
 
 export const LAB_PORTALS: LabPortal[] = [
+  // --- 0. GAMIFY YOUR LIFE (DIGITAL PRODUCT - INTERNAL VERCEL APP) ---
+  {
+    id: "gamify-life",
+    title: "Gamify Your Life",
+    category: "digital-products",
+    categoryLabel: "Digital Products",
+    badge: "Interactive RPG PWA",
+    destinationType: "Internal Webapp",
+    description: "Turn your daily life into a retro 8-bit RPG adventure. Level up 7 core stats (Knowledge, Health, Focus, Creativity, Social, Discipline, Kindness), complete daily missions, redeem earned rewards, and keep cozy campfire streaks.",
+    actionText: "Play Gamify Life",
+    href: "/gamify-life",
+    isInternal: true,
+    accentColor: "#fbbf24",
+    iconType: "game",
+    meta: "Vercel Native • Offline PWA Save",
+  },
+
   // --- 1. THE GAMES PORTFOLIO ---
   {
     id: "games-portal",
@@ -138,8 +155,8 @@ export const LAB_PORTALS: LabPortal[] = [
   {
     id: "vscode-publisher",
     title: "VS Code Extensions",
-    category: "games-tools",
-    categoryLabel: "Scriptorium Instruments",
+    category: "digital-products",
+    categoryLabel: "Digital Products & Utilities",
     badge: "Visual Studio Marketplace",
     destinationType: "Marketplace Publisher",
     description: "Acquire bespoke code-editor themes, productivity instruments, and workflow optimizations crafted specifically for the modern digital scribe.",

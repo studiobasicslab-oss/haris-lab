@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { X, Sparkles, RefreshCw, Copy, Check, Atom, Compass, Gamepad2 } from "lucide-react";
+import { X, Sparkles, RefreshCw, Copy, Check, Atom, Gamepad2 } from "lucide-react";
 import { THOUGHT_EXPERIMENTS } from "../data/labCatalogue";
 import { labAudio } from "./LabAudio";
 import ReflexMiniGame from "./ReflexMiniGame";

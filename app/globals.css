@@ -17,32 +17,53 @@
   --card-hover-bg: rgba(22, 27, 42, 0.85);
 }
 
+[data-theme="space"],
 [data-theme="obsidian-mint"] {
+  --bg-color: #090a0f;
+  --bg-secondary: #11141e;
+  --text-main: #f1f5f9;
+  --text-sub: #94a3b8;
+  --text-muted: #64748b;
   --accent: #34d399;
   --accent-glow: rgba(52, 211, 153, 0.25);
   --accent-secondary: #06b6d4;
+  --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(52, 211, 153, 0.4);
+  --card-bg: rgba(15, 18, 28, 0.7);
+  --card-hover-bg: rgba(22, 27, 42, 0.85);
 }
 
-[data-theme="cosmic-violet"] {
-  --accent: #a855f7;
-  --accent-glow: rgba(168, 85, 247, 0.25);
-  --accent-secondary: #ec4899;
-  --border-hover: rgba(168, 85, 247, 0.4);
+[data-theme="forest"],
+[data-theme="dark-forest"] {
+  --bg-color: #0d1612;
+  --bg-secondary: #13221c;
+  --text-main: #e2f0d9;
+  --text-sub: #9eb89c;
+  --text-muted: #5e7a61;
+  --accent: #5eead4;
+  --accent-glow: rgba(94, 234, 212, 0.3);
+  --accent-secondary: #fbbf24;
+  --border: rgba(94, 234, 212, 0.15);
+  --border-hover: rgba(94, 234, 212, 0.5);
+  --card-bg: rgba(16, 28, 23, 0.8);
+  --card-hover-bg: rgba(22, 38, 31, 0.92);
 }
 
-[data-theme="solar-amber"] {
-  --accent: #f59e0b;
-  --accent-glow: rgba(245, 158, 11, 0.25);
-  --accent-secondary: #ef4444;
-  --border-hover: rgba(245, 158, 11, 0.4);
-}
-
-[data-theme="cyber-cyan"] {
-  --accent: #06b6d4;
-  --accent-glow: rgba(6, 182, 212, 0.25);
-  --accent-secondary: #3b82f6;
-  --border-hover: rgba(6, 182, 212, 0.4);
+[data-theme="flowers"],
+[data-theme="floral-light"],
+[data-theme="vintage-coquette"] {
+  --bg-color: #faf5f0;
+  --bg-secondary: #f3eae0;
+  --text-main: #2b1f1d;
+  --text-sub: #6e4e46;
+  --text-muted: #9c7b73;
+  --accent: #e07a97;
+  --accent-glow: rgba(224, 122, 151, 0.35);
+  --accent-secondary: #d4a373;
+  --border: rgba(184, 137, 131, 0.25);
+  --border-hover: rgba(224, 122, 151, 0.6);
+  --card-bg: rgba(255, 252, 248, 0.85);
+  --card-hover-bg: rgba(255, 246, 248, 0.95);
 }
 
 html {
@@ -146,3 +167,31 @@ body {
 .eq-bar-2 { animation: eq-2 0.6s ease infinite 0.15s; }
 .eq-bar-3 { animation: eq-3 0.8s ease infinite 0.3s; }
 .eq-bar-4 { animation: eq-4 0.5s ease infinite 0.1s; }
+
+/* Vintage & Botanical Aesthetics */
+.vintage-parchment {
+  background-color: var(--card-bg);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 16px 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.02);
+}
+
+.vintage-stamp-edge {
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+}
+
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #e07a97, #b23b5c);
+  box-shadow: 0 2px 8px rgba(178, 59, 92, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.wax-seal-gold {
+  background: radial-gradient(circle at 35% 35%, #ffd166, #c78b20);
+  box-shadow: 0 2px 8px rgba(199, 139, 32, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.vintage-book-spine {
+  box-shadow: -6px 0 12px -2px rgba(0, 0, 0, 0.3), inset 3px 0 6px rgba(255, 255, 255, 0.1);
+}

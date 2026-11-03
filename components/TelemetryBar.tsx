@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Volume2, VolumeX, Sparkles, Palette, Radio, Terminal } from "lucide-react";
+import { Volume2, VolumeX, Sparkles, Palette, Radio } from "lucide-react";
 import { labAudio } from "./LabAudio";
 
 interface TelemetryBarProps {
@@ -40,14 +40,13 @@ export default function TelemetryBar({
   };
 
   const themes = [
-    { id: "obsidian-mint", label: "Obsidian Mint", color: "#34d399" },
-    { id: "cosmic-violet", label: "Cosmic Violet", color: "#a855f7" },
-    { id: "cyber-cyan", label: "Cyber Cyan", color: "#06b6d4" },
-    { id: "solar-amber", label: "Solar Amber", color: "#f59e0b" },
+    { id: "flowers", label: "Flowers (Light)", color: "#e07a97", icon: "🌸" },
+    { id: "space", label: "Space (Dark)", color: "#34d399", icon: "🚀" },
+    { id: "forest", label: "Forest (Dark)", color: "#5eead4", icon: "🌲" },
   ];
 
   return (
-    <div className="w-full border-b border-[var(--border)] bg-[#090a0f]/85 backdrop-blur-md sticky top-0 z-40 px-4 md:px-8 py-2.5 transition-all">
+    <div className="w-full border-b border-[var(--border)] bg-[var(--bg-color)]/85 backdrop-blur-md sticky top-0 z-40 px-4 md:px-8 py-2.5 transition-all">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-telemetry">
         {/* Left: Studio Identity & Live System Telemetry */}
         <div className="flex items-center gap-3">
@@ -116,7 +115,7 @@ export default function TelemetryBar({
                 labAudio.playBlip(440);
                 setThemeDropdownOpen(!themeDropdownOpen);
               }}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text-sub)] hover:text-[var(--text-main)] hover:border-[var(--border-hover)] transition"
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text-sub)] hover:text-[var(--text-main)] hover:border-[var(--border-hover)] transition shadow-sm"
               title="Change Theme Palette"
             >
               <Palette className="w-3.5 h-3.5 text-[var(--accent)]" />
@@ -125,11 +124,11 @@ export default function TelemetryBar({
 
             {themeDropdownOpen && (
               <div
-                className="absolute right-0 mt-2 w-44 rounded-xl glass-panel p-2 shadow-2xl z-50 border border-[var(--border)] animate-in fade-in zoom-in-95 duration-150"
+                className="absolute right-0 mt-2 w-48 rounded-xl glass-panel p-2 shadow-2xl z-50 border border-[var(--border)] animate-in fade-in zoom-in-95 duration-150"
                 onClick={() => setThemeDropdownOpen(false)}
               >
                 <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider px-2 py-1 border-b border-[var(--border)] mb-1">
-                  Atelier Palette
+                  Theme Palette
                 </div>
                 {themes.map((t) => (
                   <button
@@ -140,11 +139,14 @@ export default function TelemetryBar({
                     }}
                     className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left text-xs transition ${
                       activeTheme === t.id
-                        ? "bg-[var(--card-hover-bg)] text-[var(--accent)] font-medium"
+                        ? "bg-[var(--card-hover-bg)] text-[var(--accent)] font-semibold"
                         : "text-[var(--text-sub)] hover:bg-[var(--card-hover-bg)] hover:text-[var(--text-main)]"
                     }`}
                   >
-                    <span>{t.label}</span>
+                    <span className="flex items-center gap-1.5">
+                      <span>{t.icon}</span>
+                      <span>{t.label}</span>
+                    </span>
                     <span
                       className="w-2.5 h-2.5 rounded-full"
                       style={{ backgroundColor: t.color }}
