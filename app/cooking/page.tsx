@@ -338,6 +338,24 @@ export default function CookingJournal() {
                 );
               })}
             </div>
+
+            {/* Special Holiday Cookbook Callout */}
+            <div className="mt-12 pt-6 border-t-2 border-dashed border-[var(--ink-black)]/20 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[var(--paper-bg)]/60 p-6 rounded-lg border border-black/5 max-w-5xl mx-auto">
+              <div>
+                <h4 className="font-marker text-2xl text-[var(--ink-red)] flex items-center gap-2">
+                  <span>🦃</span> Special Holiday Cookbook!
+                </h4>
+                <p className="font-handwriting text-2xl text-[var(--ink-blue)]">
+                  Grab &quot;The Complete Thanksgiving Cookbook&quot; free printable guide (76 MB PDF)
+                </p>
+              </div>
+              <a
+                href="/digital-products?download=thanksgiving"
+                className="px-6 py-2.5 bg-[var(--ink-black)] text-[var(--paper-bg)] font-marker text-xl rounded-full hover:bg-[var(--ink-red)] transition-colors shadow-md shrink-0 flex items-center gap-2"
+              >
+                <span>Free Download 📥</span>
+              </a>
+            </div>
             
             <div className="absolute bottom-12 right-16 opacity-40 pointer-events-none hidden md:block">
               <span className="font-handwriting text-4xl text-[var(--ink-black)]">Pick something delicious! ➔</span>
