@@ -39,14 +39,14 @@ export const LAB_PORTALS: LabPortal[] = [
     category: "digital-products",
     categoryLabel: "Holiday Digital Product",
     badge: "Free 76 MB PDF E-Book",
-    destinationType: "Free Digital E-Book",
+    destinationType: "Internal Webapp",
     description: "Your ultimate holiday culinary master guide. Features roast turkey mastery, savory stuffing, herb pan gravies, spiced pumpkin pies, festive sides, and holiday mocktails in a high-resolution printable PDF.",
-    actionText: "Download Free Cookbook",
-    href: "/digital-products?download=thanksgiving",
+    actionText: "Explore Cookbook",
+    href: "/digital-products#thanksgiving-cookbook",
     isInternal: true,
     accentColor: "#f97316",
     iconType: "cooking",
-    meta: "Free PDF • Direct Download",
+    meta: "Vercel Native • Free PDF",
   },
 
   // --- 1. THE GAMES PORTFOLIO ---

@@ -350,10 +350,10 @@ export default function CookingJournal() {
                 </p>
               </div>
               <a
-                href="/digital-products?download=thanksgiving"
+                href="/digital-products#thanksgiving-cookbook"
                 className="px-6 py-2.5 bg-[var(--ink-black)] text-[var(--paper-bg)] font-marker text-xl rounded-full hover:bg-[var(--ink-red)] transition-colors shadow-md shrink-0 flex items-center gap-2"
               >
-                <span>Free Download 📥</span>
+                <span>View Cookbook 📖</span>
               </a>
             </div>
             
