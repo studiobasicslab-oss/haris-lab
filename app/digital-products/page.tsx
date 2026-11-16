@@ -489,20 +489,6 @@ export default function DigitalProductsPage() {
                 </div>
               </div>
             </div>
-
-            {/* Pinterest Share Instructions Ribbon */}
-            <div className="p-4 rounded-2xl bg-orange-950/40 border border-orange-500/25 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-telemetry text-[var(--text-sub)]">
-              <div className="flex items-center gap-2 text-orange-200">
-                <Sparkles className="w-4 h-4 text-orange-400 shrink-0" />
-                <span>
-                  <strong>Pinterest Direct Auto-Download:</strong> Share{" "}
-                  <code className="bg-black/60 px-2 py-0.5 rounded text-amber-300 font-mono text-[11px] border border-orange-500/30">
-                    /digital-products?download=thanksgiving
-                  </code>{" "}
-                  on your Pinterest pins for immediate one-click downloading!
-                </span>
-              </div>
-            </div>
           </motion.div>
         </section>
 
