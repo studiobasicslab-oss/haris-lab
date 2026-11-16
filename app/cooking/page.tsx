@@ -80,6 +80,62 @@ const recipes = [
     stamp: '/stamp-india.jpg'
   },
   {
+    id: 'chettinad-chicken',
+    category: 'Mains' as Category,
+    title: 'Chettinad Chicken 🍗',
+    notes: 'A fiery, fragrant Tamil Nadu specialty packed with freshly dry-roasted whole spices, black pepper, and curry leaves. Rich, aromatic, and unbeatable with parotta or rice!',
+    materials: [
+      '500g Chicken, bone-in 🍗',
+      'Fresh Chettinad masala (Black pepper, Fennel, Cumin, Coriander seeds, Star anise) 🌿',
+      'Shallots & Onions, finely sliced 🧅',
+      '2 Tomatoes, chopped 🍅',
+      '2 tbsp Ginger-Garlic paste 🧄',
+      'Curry leaves, Ghee & Coconut paste 🥥'
+    ],
+    procedures: [
+      'Dry roast whole spices (peppercorns, fennel, coriander, star anise, cinnamon) and grind into a fragrant spice blend.',
+      'Heat oil and ghee in a heavy pot, add whole spices and plenty of fresh curry leaves.',
+      'Sauté shallots and onions until deep golden brown, then stir in ginger-garlic paste and tomatoes.',
+      'Add the chicken and toss with the ground spice powder until evenly coated and browned.',
+      'Add a splash of water, cover, and simmer until chicken is succulent and the gravy turns dark and glossy.',
+      'Finish with coconut paste and fresh coriander. Serve hot with flaky parotta or rice! 🫓'
+    ],
+    sticker: '/chettinad-chicken.jpg',
+    stickerRotation: -2,
+    tapeColor: 'var(--tape-yellow)',
+    rating: 5,
+    country: 'India',
+    stamp: '/stamp-india.jpg'
+  },
+  {
+    id: 'chicken-ghee-roast',
+    category: 'Mains' as Category,
+    title: 'Chicken Ghee Roast 🧈🌶️',
+    notes: 'An iconic Mangalorean culinary treasure! Juicy chicken slow-roasted in pure aromatic ghee with tangy tamarind, a touch of jaggery, and vibrant Byadgi chili masala.',
+    materials: [
+      '500g Chicken, bone-in cuts 🍗',
+      '3-4 tbsp Pure Desi Ghee 🧈',
+      'Byadgi & Guntur whole red chilies 🌶️',
+      'Whole spices (Coriander, Cumin, Fennel, Fenugreek & Peppercorns) 🌿',
+      'Tamarind pulp & small piece of Jaggery 🍯',
+      'Lots of fresh Curry leaves & Garlic pods 🧄'
+    ],
+    procedures: [
+      'Marinate chicken in curd, turmeric, lemon juice, and a pinch of salt for 30 minutes.',
+      'Dry roast red chilies and whole spices on low heat until aromatic, then grind with garlic and tamarind into a smooth, thick red paste.',
+      'Heat 2 tbsp ghee in a heavy pan and sear the marinated chicken until cooked through and lightly charred. Remove and set aside.',
+      'In the same pan, melt more ghee, add curry leaves, and roast the ground masala paste on low heat until fragrant and the ghee separates.',
+      'Toss the cooked chicken into the roasted masala, add jaggery, and adjust salt.',
+      'Slow-roast on low heat until the rich, glossy masala clings to every piece of chicken. Serve hot with Neer Dosa or Parotta! 🥞'
+    ],
+    sticker: '/chicken-ghee-roast.jpg',
+    stickerRotation: 3,
+    tapeColor: 'var(--tape-pink)',
+    rating: 5,
+    country: 'India',
+    stamp: '/stamp-india.jpg'
+  },
+  {
     id: 'dragon-mocktail',
     category: 'Drinks' as Category,
     title: '🌺 Dragon Mocktail',
