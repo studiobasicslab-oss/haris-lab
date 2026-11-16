@@ -4,7 +4,7 @@ export interface LabPortal {
   category: "digital-products" | "games-tools" | "curiosities" | "broadcasts" | "observatory";
   categoryLabel: string;
   badge: string;
-  destinationType: "External Hub" | "YouTube Channel" | "Pinterest Board" | "Instagram Profile" | "Goodreads Folio" | "Internal Webapp" | "Marketplace Publisher";
+  destinationType: "External Hub" | "YouTube Channel" | "Pinterest Board" | "Instagram Profile" | "Goodreads Folio" | "Internal Webapp" | "Marketplace Publisher" | "Free Digital E-Book";
   description: string;
   actionText: string;
   href: string;
@@ -30,6 +30,23 @@ export const LAB_PORTALS: LabPortal[] = [
     accentColor: "#fbbf24",
     iconType: "game",
     meta: "Vercel Native • Offline PWA Save",
+  },
+
+  // --- 0.1 THE COMPLETE THANKSGIVING COOKBOOK (DIGITAL PRODUCT - E-BOOK) ---
+  {
+    id: "thanksgiving-cookbook",
+    title: "The Complete Thanksgiving Cookbook",
+    category: "digital-products",
+    categoryLabel: "Holiday Digital Product",
+    badge: "Free 76 MB PDF E-Book",
+    destinationType: "Free Digital E-Book",
+    description: "Your ultimate holiday culinary master guide. Features roast turkey mastery, savory stuffing, herb pan gravies, spiced pumpkin pies, festive sides, and holiday mocktails in a high-resolution printable PDF.",
+    actionText: "Download Free Cookbook",
+    href: "/digital-products?download=thanksgiving",
+    isInternal: true,
+    accentColor: "#f97316",
+    iconType: "cooking",
+    meta: "Free PDF • Direct Download",
   },
 
   // --- 1. THE GAMES PORTFOLIO ---
