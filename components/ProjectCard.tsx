@@ -10,6 +10,9 @@ import {
   Terminal,
   ArrowUpRight,
   ExternalLink,
+  FileText,
+  Download,
+  Eye,
 } from "lucide-react";
 import { YoutubeIcon, InstagramIcon, PinterestIcon } from "./BrandIcons";
 import { LabPortal } from "../data/labCatalogue";
@@ -70,6 +73,8 @@ export default function ProjectCard({ portal }: ProjectCardProps) {
         return <Wrench className="w-5 h-5 text-cyan-400" />;
       case "terminal":
         return <Terminal className="w-5 h-5 text-yellow-400" />;
+      case "pdf":
+        return <FileText className="w-5 h-5 text-amber-400" />;
       default:
         return <Sparkles className="w-5 h-5 text-[var(--accent)]" />;
     }
@@ -131,7 +136,9 @@ export default function ProjectCard({ portal }: ProjectCardProps) {
         <h3 className="font-display text-2xl md:text-3xl text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors duration-300 mb-2.5 leading-tight flex items-center justify-between">
           <span>{portal.title}</span>
           <span className="opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-[var(--accent)]">
-            {portal.isInternal ? (
+            {portal.isDownload ? (
+              <Download className="w-5 h-5" />
+            ) : portal.isInternal ? (
               <ArrowUpRight className="w-5 h-5" />
             ) : (
               <ExternalLink className="w-5 h-5" />
@@ -146,18 +153,66 @@ export default function ProjectCard({ portal }: ProjectCardProps) {
       </div>
 
       {/* Bottom Action Footer */}
-      <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-telemetry mt-auto">
-        <span className="text-[10px] text-[var(--text-muted)] truncate max-w-[160px]">
+      <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-telemetry mt-auto gap-2">
+        <span className="text-[10px] text-[var(--text-muted)] truncate max-w-[140px] sm:max-w-[160px]">
           {portal.meta}
         </span>
 
-        <div className="flex items-center gap-1.5 text-[var(--accent)] font-medium group-hover:translate-x-1 transition-transform">
-          <span>{portal.actionText}</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </div>
+        {portal.isDownload ? (
+          <div
+            className="flex items-center gap-1.5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <a
+              href={portal.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => labAudio.playBlip(550)}
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[var(--card-hover-bg)] text-[var(--text-sub)] hover:text-[var(--text-main)] border border-[var(--border)] hover:border-[var(--accent)] text-[11px] font-medium transition"
+              title="Preview in browser"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span>Preview</span>
+            </a>
+            <a
+              href={portal.href}
+              download={portal.downloadFilename || true}
+              onClick={() => labAudio.playChime()}
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[var(--accent)] text-[#090a0f] font-semibold text-[11px] hover:opacity-90 transition shadow-[0_0_12px_var(--accent-glow)]"
+              title="Download printable PDF file"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download</span>
+            </a>
+          </div>
+        ) : (
+          <div className="flex items-center gap-1.5 text-[var(--accent)] font-medium group-hover:translate-x-1 transition-transform">
+            <span>{portal.actionText}</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </div>
+        )}
       </div>
     </div>
   );
+
+  if (portal.isDownload) {
+    return (
+      <div
+        className="block h-full cursor-pointer"
+        onClick={() => {
+          const link = document.createElement("a");
+          link.href = portal.href;
+          if (portal.downloadFilename) {
+            link.download = portal.downloadFilename;
+          }
+          link.click();
+          labAudio.playChime();
+        }}
+      >
+        {CardContent}
+      </div>
+    );
+  }
 
   if (portal.isInternal) {
     return (

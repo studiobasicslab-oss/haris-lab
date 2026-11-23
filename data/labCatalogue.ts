@@ -1,16 +1,20 @@
 export interface LabPortal {
   id: string;
   title: string;
-  category: "digital-products" | "games-tools" | "curiosities" | "broadcasts" | "observatory";
+  category: "games-tools" | "curiosities" | "broadcasts" | "observatory" | "digital-products";
   categoryLabel: string;
   badge: string;
-  destinationType: "External Hub" | "YouTube Channel" | "Pinterest Board" | "Instagram Profile" | "Goodreads Folio" | "Internal Webapp" | "Marketplace Publisher" | "Free Digital E-Book";
+  destinationType: "External Hub" | "YouTube Channel" | "Pinterest Board" | "Instagram Profile" | "Goodreads Folio" | "Internal Webapp" | "Marketplace Publisher" | "Digital Edition";
   description: string;
   actionText: string;
   href: string;
   isInternal?: boolean;
+  isDownload?: boolean;
+  downloadFilename?: string;
+  fileSize?: string;
+  pageCount?: number | string;
   accentColor: string;
-  iconType: "game" | "tool" | "youtube" | "pinterest" | "instagram" | "goodreads" | "cooking" | "terminal" | "observatory";
+  iconType: "game" | "tool" | "youtube" | "pinterest" | "instagram" | "goodreads" | "cooking" | "terminal" | "observatory" | "pdf";
   meta: string;
 }
 
@@ -83,7 +87,47 @@ export const LAB_PORTALS: LabPortal[] = [
     meta: "studiobasicslab-oss.github.io/Tools",
   },
 
-  // --- 3. A MINUTE OF KNOWLEDGE (YOUTUBE) ---
+  // --- 3. DIGITAL PRODUCTS: THE AUTUMN JOURNAL & PLANNER ---
+  {
+    id: "autumn-journal-planner",
+    title: "The Autumn Seasonal Journal & Planner",
+    category: "digital-products",
+    categoryLabel: "Digital Editions & Printables",
+    badge: "37-Page Printable Folio",
+    destinationType: "Digital Edition",
+    description: "A comprehensive 37-page companion and guided planner for thoughtful autumn living. Features 30-day journaling prompts, seasonal habit trackers, ritual spaces, and mindful reflection spreads.",
+    actionText: "Download Free PDF",
+    href: "/autumn_seasonal_journal_planner.pdf",
+    downloadFilename: "Autumn_Seasonal_Journal_Planner.pdf",
+    isDownload: true,
+    fileSize: "3.2 MB",
+    pageCount: 37,
+    accentColor: "#f97316",
+    iconType: "pdf",
+    meta: "37 Pages • 3.2 MB • Printable PDF",
+  },
+
+  // --- 4. DIGITAL PRODUCTS: 52 WEEKENDS UNPLUGGED ---
+  {
+    id: "52-weekends-unplugged",
+    title: "52 Weekends Unplugged",
+    category: "digital-products",
+    categoryLabel: "Digital Editions & Printables",
+    badge: "16-Page Field Guide",
+    destinationType: "Digital Edition",
+    description: "A curated 16-page printable guide featuring 52 creative offline itineraries, tactile rituals, and analogue challenges to reclaim your focus and disconnect from the screen every weekend.",
+    actionText: "Download Free PDF",
+    href: "/52_weekends_unplugged.pdf",
+    downloadFilename: "52_Weekends_Unplugged.pdf",
+    isDownload: true,
+    fileSize: "1.4 MB",
+    pageCount: 16,
+    accentColor: "#10b981",
+    iconType: "pdf",
+    meta: "16 Pages • 1.4 MB • Printable PDF",
+  },
+
+  // --- 5. A MINUTE OF KNOWLEDGE (YOUTUBE) ---
   {
     id: "youtube-channel",
     title: "A Minute of Knowledge",
@@ -100,7 +144,7 @@ export const LAB_PORTALS: LabPortal[] = [
     meta: "youtube.com/@AMinuteofKnowledge-c6k",
   },
 
-  // --- 4. DIGITAL DRAWINGS (PINTEREST) ---
+  // --- 6. DIGITAL DRAWINGS (PINTEREST) ---
   {
     id: "pinterest-drawings",
     title: "The Drawing Board",
@@ -117,7 +161,7 @@ export const LAB_PORTALS: LabPortal[] = [
     meta: "pinterest.com/studiobasicslab",
   },
 
-  // --- 5. VISUAL DISPATCHES (INSTAGRAM) ---
+  // --- 7. VISUAL DISPATCHES (INSTAGRAM) ---
   {
     id: "instagram-feed",
     title: "Visual Dispatches",
@@ -134,7 +178,7 @@ export const LAB_PORTALS: LabPortal[] = [
     meta: "instagram.com/studiobasics.lab",
   },
 
-  // --- 6. THE CURATOR'S BOOKSHELF (GOODREADS) ---
+  // --- 8. THE CURATOR'S BOOKSHELF (GOODREADS) ---
   {
     id: "goodreads-shelf",
     title: "The Curator's Bookshelf",
@@ -151,7 +195,7 @@ export const LAB_PORTALS: LabPortal[] = [
     meta: "goodreads.com/hari",
   },
 
-  // --- 7. THE KITCHEN LABORATORY (CULINARY LOGBOOK) ---
+  // --- 9. THE KITCHEN LABORATORY (CULINARY LOGBOOK) ---
   {
     id: "kitchen-lab",
     title: "The Kitchen Laboratory",
@@ -168,7 +212,7 @@ export const LAB_PORTALS: LabPortal[] = [
     meta: "Internal Recipe Ledger",
   },
 
-  // --- 8. VS CODE EXTENSIONS PUBLISHER ---
+  // --- 10. VS CODE EXTENSIONS PUBLISHER ---
   {
     id: "vscode-publisher",
     title: "VS Code Extensions",

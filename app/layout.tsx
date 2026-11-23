@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Lora, Caveat, Special_Elite, JetBrains_Mono, Outfit, Instrument_Serif } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -63,6 +64,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${lora.variable} ${instrumentSerif.variable} ${outfit.variable} ${jetbrainsMono.variable} ${caveat.variable} ${specialElite.variable} font-sans h-full antialiased`}
     >
+      <GoogleTagManager gtmId="GTM-N4HZR2HL" />
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

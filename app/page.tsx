@@ -1,19 +1,21 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Gamepad2,
   Sparkles,
   Search,
   Orbit,
+  Radio,
   Atom,
   Layers,
   RefreshCw,
   Video,
-  Package,
+  BookMarked,
+  ArrowUpRight,
 } from "lucide-react";
 import CosmicCanvas from "../components/CosmicCanvas";
-import AtmosphericCanvas from "../components/AtmosphericCanvas";
 import TelemetryBar from "../components/TelemetryBar";
 import ProjectCard from "../components/ProjectCard";
 import CuriosityModal from "../components/CuriosityModal";
@@ -25,7 +27,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isCuriosityOpen, setIsCuriosityOpen] = useState<boolean>(false);
-  const [activeTheme, setActiveTheme] = useState<string>("space");
+  const [activeTheme, setActiveTheme] = useState<string>("obsidian-mint");
   const [thoughtIndex, setThoughtIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -38,14 +40,7 @@ export default function Home() {
       label: "All Portals",
       icon: Layers,
       count: LAB_PORTALS.length,
-      description: "Complete studio directory of active websites, tools, and social channels",
-    },
-    {
-      id: "digital-products",
-      label: "Digital Products",
-      icon: Package,
-      count: LAB_PORTALS.filter((p) => p.category === "digital-products").length,
-      description: "Interactive applications, Gamify Your Life RPG habit system, and custom digital instruments",
+      description: "Complete studio directory of active websites, tools, digital products, and social channels",
     },
     {
       id: "games-tools",
@@ -53,6 +48,13 @@ export default function Home() {
       icon: Gamepad2,
       count: LAB_PORTALS.filter((p) => p.category === "games-tools").length,
       description: "Interactive arcade game parlor, deep-space telemetry tools, and developer instruments",
+    },
+    {
+      id: "digital-products",
+      label: "Digital Products",
+      icon: BookMarked,
+      count: LAB_PORTALS.filter((p) => p.category === "digital-products").length,
+      description: "Original printable folios, guided seasonal journals, offline field guides, and digital downloads",
     },
     {
       id: "curiosities",
@@ -105,15 +107,9 @@ export default function Home() {
   const currentTabObj = navTabs.find((t) => t.id === activeTab);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-main)] relative selection:bg-[var(--accent)] selection:text-[#090a0f] transition-colors duration-500">
-      {/* Background Particle Fields: Space Constellations vs Forest Fireflies vs Flower Petals */}
-      {activeTheme === "space" || activeTheme === "obsidian-mint" ? (
-        <CosmicCanvas density="medium" interactive={true} />
-      ) : activeTheme === "forest" ? (
-        <AtmosphericCanvas theme="dark-forest" interactive={true} />
-      ) : (
-        <AtmosphericCanvas theme="vintage-coquette" interactive={true} />
-      )}
+    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-main)] relative selection:bg-[var(--accent)] selection:text-[#090a0f]">
+      {/* Background Constellation Particle Field */}
+      <CosmicCanvas density="medium" interactive={true} />
 
       {/* Top Telemetry & Controls Bar */}
       <TelemetryBar
@@ -191,9 +187,20 @@ export default function Home() {
 
           {/* Tab Subtitle Context & Search */}
           <div className="max-w-4xl mx-auto mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-[var(--border)] pb-4">
-            <p className="font-sans-modern text-xs text-[var(--text-muted)] text-center sm:text-left">
-              {currentTabObj?.description}
-            </p>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
+              <p className="font-sans-modern text-xs text-[var(--text-muted)]">
+                {currentTabObj?.description}
+              </p>
+              {activeTab === "digital-products" && (
+                <Link
+                  href="/digital-products"
+                  className="inline-flex items-center gap-1 text-xs font-telemetry text-[var(--accent)] hover:underline ml-1 font-medium"
+                >
+                  <span>Open Full Editions Folio</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
+            </div>
 
             {activeTab !== "observatory" && (
               <div className="relative w-full sm:w-64">
